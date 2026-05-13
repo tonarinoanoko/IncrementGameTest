@@ -1,0 +1,9 @@
+/.vs
+/Log.txt
+/x64
+/ChronoGate
+/Save
+/Tools/common/__pycache__/*.pyc
+/Tools/common/token.json
+/Tools/common/credentials.json
+/Project/.vs

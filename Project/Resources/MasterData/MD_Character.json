@@ -1,0 +1,12 @@
+{
+    "Hero": {
+        "id": "Hero",
+        "name": "ヒーロー",
+        "value": 1
+    },
+    "Slime": {
+        "id": "Slime",
+        "name": "スライム",
+        "value": 2
+    }
+}

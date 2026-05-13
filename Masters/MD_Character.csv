@@ -1,0 +1,3 @@
+﻿id:enum,name:string,value:int
+Hero,ヒーロー,1
+Slime,スライム,2
