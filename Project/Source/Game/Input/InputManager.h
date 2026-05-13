@@ -5,12 +5,6 @@
 
 namespace MyGame {
 class InputManager : public IGlobalService {
-private:
-    std::unordered_map<InputAction, int> keyConfig;
-    char keyState[256];
-    char prevKeyState[256];
-    int mouseX, mouseY, mouseButtons, prevMouseButtons;
-
 public:
     InputManager();
     void update() override; // IGlobalServiceの実装
@@ -19,5 +13,11 @@ public:
     bool isTriggered(InputAction action) const;
     void getMousePos(int& x, int& y) const;
     bool isMouseTriggered(int buttonMask) const;
+
+private:
+    std::unordered_map<InputAction, int> _key_config;
+    char _key_state[256];
+    char _prev_key_state[256];
+    int _mouse_x, _mouse_y, _mouse_buttons, _prev_mouse_buttons;
 };
 }

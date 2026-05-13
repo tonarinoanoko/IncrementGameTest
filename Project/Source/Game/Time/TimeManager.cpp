@@ -3,12 +3,12 @@
 namespace MyGame {
 void TimeManager::update()
 {
-    LONGLONG currentTime = GetNowHiPerformanceCount();
+    LONGLONG current_time = GetNowHiPerformanceCount();
     // 秒単位で算出
-    deltaTime = static_cast<float>(currentTime - lastTime) / 1000000.0f;
-    lastTime = currentTime;
+    _delta_time = static_cast<float>(current_time - _last_time) / 1000000.0f;
+    _last_time = current_time;
 
     // ゲーム内累計時間（倍速などの影響を受ける用）
-    totalGameTime += deltaTime * timeScale;
+    _total_game_time += _delta_time * _time_scale;
 }
 }

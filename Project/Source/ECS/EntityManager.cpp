@@ -22,12 +22,12 @@ Entity EntityManager::create()
 
 void EntityManager::destroy(Entity e)
 {
-    if(e._id >= _generations.size()) return; // 安全策
+    if(e.id >= _generations.size()) return; // 安全策
 
     // 世代をインクリメントして古いハンドルを無効化
-    ++_generations[e._id];
-    _masks[e._id].reset(); // 破壊されたらコンポーネント情報を消す
-    _free_entities.push_back(e._id);
+    ++_generations[e.id];
+    _masks[e.id].reset(); // 破壊されたらコンポーネント情報を消す
+    _free_entities.push_back(e.id);
 }
 
 void EntityManager::clear()
@@ -40,18 +40,18 @@ void EntityManager::clear()
 
 ComponentMask EntityManager::getMask(Entity e) const
 {
-    return _masks[e._id];
+    return _masks[e.id];
 }
 
 void EntityManager::setMask(Entity e, ComponentMask mask)
 {
-    _masks[e._id] = mask;
+    _masks[e.id] = mask;
 }
 
 bool EntityManager::isAlive(Entity e) const
 {
     // 世代管理により高速判定
-    return e._id < static_cast<uint32_t>(_generations.size()) && _generations[e._id] == e._generation;
+    return e.id < static_cast<uint32_t>(_generations.size()) && _generations[e.id] == e.generation;
 }
 
 std::vector<Entity> EntityManager::getLivingEntities() const

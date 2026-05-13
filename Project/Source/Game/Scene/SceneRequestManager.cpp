@@ -3,25 +3,25 @@
 namespace MyGame {
 
 SceneRequestManager::SceneRequestManager()
-    : nextScene(SceneType::Title), requested(false)
+    : _next_scene(SceneType::Title), _requested(false)
 {
 }
 
 void SceneRequestManager::request(SceneType scene)
 {
-    nextScene = scene;
-    requested = true;
+    _next_scene = scene;
+    _requested = true;
 }
 
 bool SceneRequestManager::hasRequest() const
 {
-    return requested;
+    return _requested;
 }
 
 SceneType SceneRequestManager::popRequest()
 {
-    requested = false; // 取り出すと同時にフラグを下ろす
-    return nextScene;
+    _requested = false; // 取り出すと同時にフラグを下ろす
+    return _next_scene;
 }
 
 }

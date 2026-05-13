@@ -4,10 +4,6 @@
 
 namespace MyGame {
 class SceneRequestManager : public IGlobalService {
-private:
-    SceneType nextScene;
-    bool requested;
-
 public:
     SceneRequestManager();
     void update() override {} // 特に毎フレームやることはない
@@ -15,5 +11,9 @@ public:
     void request(SceneType scene);
     bool hasRequest() const;
     SceneType popRequest(); // リクエストを取り出し、フラグを折る
+
+private:
+    SceneType _next_scene;
+    bool _requested;
 };
 }
