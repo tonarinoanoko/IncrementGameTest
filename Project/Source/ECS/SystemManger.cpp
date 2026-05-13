@@ -3,20 +3,20 @@
 
 namespace MyECS {
 
-SystemManager::SystemManager() : needsSort(false) {}
+SystemManager::SystemManager() : _needs_sort(false) {}
 SystemManager::~SystemManager() {}
 
 void SystemManager::sortSystems()
 {
-    if(!needsSort) return;
+    if(!_needs_sort) return;
 
-    std::sort(systems.begin(), systems.end(),
+    std::sort(_systems.begin(), _systems.end(),
               [](const std::shared_ptr<ISystem>& a, const std::shared_ptr<ISystem>& b)
     {
         return a->getPriority() < b->getPriority();
     });
 
-    needsSort = false;
+    _needs_sort = false;
 }
 
 void SystemManager::updateAll(World& world, float deltaTime)
@@ -25,7 +25,7 @@ void SystemManager::updateAll(World& world, float deltaTime)
     sortSystems();
 
     // 全システムの更新実行
-    for(auto& system : systems) {
+    for(auto& system : _systems) {
         system->update(world, deltaTime);
     }
 }

@@ -25,38 +25,35 @@ public:
 
 template <typename T>
 class ComponentPool : public IComponentPool {
-private:
-    std::unordered_map<Entity, T> data;
-
 public:
     ComponentPool() = default;
 
     // コピーコンストラクタ（cloneで使用）
-    ComponentPool(const ComponentPool& other) : data(other.data) {}
+    ComponentPool(const ComponentPool& other) : _data(other._data) {}
 
     void set(Entity e, const T& component)
     {
-        data[e] = component;
+        _data[e] = component;
     }
 
     T& get(Entity e)
     {
-        return data.at(e);
+        return _data.at(e);
     }
 
     bool has(Entity e) const
     {
-        return data.find(e) != data.end();
+        return _data.find(e) != _data.end();
     }
 
     void remove(Entity e) override
     {
-        data.erase(e);
+        _data.erase(e);
     }
 
     void clear() override
     {
-        data.clear();
+        _data.clear();
     }
 
     std::unique_ptr<IComponentPool> clone() const override
@@ -67,7 +64,7 @@ public:
     std::vector<Entity> getAliveEntities() override
     {
         std::vector<Entity> result;
-        for(auto const& [entity, data] : data) {
+        for(auto const& [entity, data] : _data) {
             result.push_back(entity);
         }
         return result;
@@ -76,7 +73,7 @@ public:
     nlohmann::json serialize() override
     {
         nlohmann::json arr = nlohmann::json::array();
-        for(auto& [entity, data] : data) {
+        for(auto& [entity, data] : _data) {
             nlohmann::json entry;
             entry["eid"] = entity.id;
             entry["data"] = data; // T型がnlohmann::jsonに対応している必要があります
@@ -87,11 +84,14 @@ public:
 
     void deserialize(const nlohmann::json& j) override
     {
-        data.clear();
+        _data.clear();
         for(const auto& entry : j) {
             Entity e{entry["eid"].get<uint32_t>()};
-            data[e] = entry["data"].get<T>();
+            _data[e] = entry["data"].get<T>();
         }
     }
+
+private:
+    std::unordered_map<Entity, T> _data;
 };
 }

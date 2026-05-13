@@ -7,11 +7,11 @@ namespace MyECS {
 void World::clear()
 {
     // 全てのコンポーネントデータを削除
-    for(auto& pair : componentPools) {
+    for(auto& pair : _component_pools) {
         pair.second->clear();
     }
     // エンティティ管理のリセット
-    entityManager.clear();
+    _entity_manager.clear();
 }
 
 void World::save(const std::string& filename)
@@ -19,11 +19,11 @@ void World::save(const std::string& filename)
     nlohmann::json root;
 
     // 1. 基本情報の保存
-    root["nextID"] = entityManager.getCapacity();
+    root["nextID"] = _entity_manager.getCapacity();
 
     // 2. 各コンポーネントプールのシリアライズ
     // コンポーネントが存在しないプールは保存をスキップしても良い
-    for(auto& [typeName, pool] : componentPools) {
+    for(auto& [typeName, pool] : _component_pools) {
         root["components"][typeName] = pool->serialize();
     }
 
@@ -50,21 +50,21 @@ void World::load(const std::string& filename)
         // 1. 各プールにデータを流し込む
         for(auto it = root["components"].begin(); it != root["components"].end(); ++it) {
             std::string typeName = it.key();
-            if(componentPools.count(typeName)) {
-                componentPools[typeName]->deserialize(it.value());
+            if(_component_pools.count(typeName)) {
+                _component_pools[typeName]->deserialize(it.value());
             }
         }
 
         // 2. 重要：全Entityのビットマスクを再構築
-        for(auto& [typeName, pool] : componentPools) {
-            uint32_t tid = componentRegistry.getIDByTypeName(typeName);
+        for(auto& [typeName, pool] : _component_pools) {
+            uint32_t tid = _component_registry.getIDByTypeName(typeName);
 
             // プール内にデータがある全Entityを取得（前回追加した関数）
             auto entities = pool->getAliveEntities();
             for(auto& e : entities) {
-                ComponentMask mask = entityManager.getMask(e);
+                ComponentMask mask = _entity_manager.getMask(e);
                 mask.set(tid);
-                entityManager.setMask(e, mask);
+                _entity_manager.setMask(e, mask);
             }
         }
     }

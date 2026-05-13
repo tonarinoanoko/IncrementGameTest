@@ -16,7 +16,7 @@ public:
 
     // 毎フレーム実行される更新処理
     // AIシミュレーション時にも同じロジックを通すため、Worldを引数で受け取る
-    virtual void update(World& world, float deltaTime) = 0;
+    virtual void update(World& world, float delta_time) = 0;
 
     virtual int getPriority() const { return ESystemPriority::Logic; }
 };

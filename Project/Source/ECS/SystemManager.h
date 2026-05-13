@@ -7,13 +7,6 @@ namespace MyECS {
 class World;
 
 class SystemManager {
-private:
-    std::vector<std::shared_ptr<ISystem>> systems;
-    bool needsSort;
-
-    // 内部で使用するソート関数
-    void sortSystems();
-
 public:
     SystemManager();
     ~SystemManager();
@@ -22,10 +15,17 @@ public:
     template<typename T, typename... Args>
     void addSystem(Args&&... args)
     {
-        systems.push_back(std::make_shared<T>(std::forward<Args>(args)...));
-        needsSort = true;
+        _systems.push_back(std::make_shared<T>(std::forward<Args>(args)...));
+        _needs_sort = true;
     }
 
-    void updateAll(World& world, float deltaTime);
+    void updateAll(World& world, float delta_time);
+
+private:
+    std::vector<std::shared_ptr<ISystem>> _systems;
+    bool _needs_sort;
+
+    // 内部で使用するソート関数
+    void sortSystems();
 };
 }

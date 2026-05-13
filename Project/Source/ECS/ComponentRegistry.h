@@ -6,13 +6,6 @@
 
 namespace MyECS {
 class ComponentRegistry {
-private:
-    std::unordered_map<std::string, uint32_t> typeToID;
-    uint32_t nextID = 0;
-
-    // 内部実装はcppへ隠蔽
-    uint32_t getIDInternal(const std::string& name);
-
 public:
     ComponentRegistry();
     ~ComponentRegistry();
@@ -26,5 +19,12 @@ public:
 
     // 文字列による取得も外部に公開
     uint32_t getIDByTypeName(const std::string& name);
+
+private:
+    std::unordered_map<std::string, uint32_t> _type_to_id;
+    uint32_t _next_id = 0;
+
+    // 内部実装はcppへ隠蔽
+    uint32_t getIDInternal(const std::string& name);
 };
 }

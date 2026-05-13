@@ -4,13 +4,6 @@
 
 namespace MyECS {
 class EntityManager {
-private:
-    uint32_t nextID = 0;
-    // freeEntities stores free ids
-    std::vector<uint32_t> freeEntities;
-    std::vector<ComponentMask> masks; // 各Entityがどのコンポーネントを持つか
-    std::vector<uint32_t> generations; // 各IDの世代管理
-
 public:
     EntityManager();
     Entity create();
@@ -20,12 +13,19 @@ public:
     // クエリ用に追加
     ComponentMask getMask(Entity e) const;
     void setMask(Entity e, ComponentMask mask);
-    uint32_t getCapacity() const { return static_cast<uint32_t>(generations.size()); }
+    uint32_t getCapacity() const { return static_cast<uint32_t>(_generations.size()); }
 
     // Entityが現在使われているか（ビット判定用）
     bool isAlive(Entity e) const;
 
     // 現在生存しているEntityの取得
     std::vector<Entity> getLivingEntities() const;
+
+private:
+    uint32_t _next_id = 0;
+    // free_entities stores free ids
+    std::vector<uint32_t> _free_entities;
+    std::vector<ComponentMask> _masks; // 各Entityがどのコンポーネントを持つか
+    std::vector<uint32_t> _generations; // 各IDの世代管理
 };
 }
