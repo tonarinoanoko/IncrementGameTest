@@ -135,6 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\Blueprints\BP_Generator.h" />
+    <ClInclude Include="Source\Game\Blueprints\BP_MainResource.h" />
     <ClInclude Include="Source\ECS\ComponentPool.h" />
     <ClInclude Include="Source\ECS\ComponentRegistry.h" />
     <ClInclude Include="Source\ECS\Entity.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="Source\Game\Component\Common\Co_Transform.h" />
     <ClInclude Include="Source\Game\Component\Components.h" />
     <ClInclude Include="Source\Game\Component\Common\Timer\Co_Timer.h" />
+    <ClInclude Include="Source\Game\Component\Generator\Co_Generator.h" />
     <ClInclude Include="Source\Game\Global\IGlobalService.h" />
     <ClInclude Include="Source\Game\Global\ServiceLocator.h" />
     <ClInclude Include="Source\Game\Global\Services.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="Source\Game\Systems\Scene_Title\Sys_TitleLogic.h" />
     <ClInclude Include="Source\Game\Time\TimeManager.h" />
     <ClInclude Include="Source\Game\Systems\Common\Timer\Sys_Timer.h" />
+    <ClInclude Include="Source\Game\Systems\Scene_Main\Production\Sys_Production.h" />
     <ClInclude Include="ThirdParty\DxLib\DxCompileConfig.h" />
     <ClInclude Include="ThirdParty\DxLib\DxDataType.h" />
     <ClInclude Include="ThirdParty\DxLib\DxDataTypeWin.h" />
@@ -186,6 +190,8 @@
     <ClInclude Include="ThirdParty\nlohmann\json.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\Blueprints\BP_Generator.cpp" />
+    <ClCompile Include="Source\Game\Blueprints\BP_MainResource.cpp" />
     <ClCompile Include="Source\ECS\ComponentRegistry.cpp" />
     <ClCompile Include="Source\ECS\EntityManager.cpp" />
     <ClCompile Include="Source\ECS\SystemManger.cpp" />
@@ -206,6 +212,7 @@
     <ClCompile Include="Source\Game\Time\TimeManager.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Game\Systems\Common\Timer\Sys_Timer.cpp" />
+    <ClCompile Include="Source\Game\Systems\Scene_Main\Production\Sys_Production.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

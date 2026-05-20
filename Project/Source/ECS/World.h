@@ -34,7 +34,7 @@ public:
     void addComponent(Entity e, const T& component)
     {
         auto pool = getComponentPool<T>();
-        pool->add(e, component);
+        pool->set(e, component);
 
         // ビットマスクを更新
         uint32_t tid = _component_registry.getID<T>();

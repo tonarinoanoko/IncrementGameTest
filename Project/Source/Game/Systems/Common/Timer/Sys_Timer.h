@@ -6,5 +6,7 @@ class Sys_Timer : public MyECS::ISystem
 {
 public:
     void update(MyECS::World& world) override;
+
+    virtual int getPriority() const { return MyECS::ESystemPriority::System; }
 };
 }

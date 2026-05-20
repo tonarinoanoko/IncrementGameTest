@@ -8,7 +8,7 @@ namespace MyGame {
 
 void Sys_Timer::update(MyECS::World& world)
 {
-    auto time_manager = ServiceLocator::get<TimeManager>();
+    auto delta_time = ServiceLocator::get<TimeManager>()->getDeltaTime();
 
     auto entities = world.query<Co_Timer>();
     for(auto& entity : entities) {
@@ -17,7 +17,7 @@ void Sys_Timer::update(MyECS::World& world)
             continue;
         }
 
-        timer.elapsed += time_manager->getDeltaTime();
+        timer.elapsed += delta_time;
         if(timer.interval >= timer.elapsed) {
             timer.is_ready = true;
             timer.elapsed -= timer.interval;

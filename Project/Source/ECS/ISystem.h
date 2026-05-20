@@ -5,6 +5,7 @@ class World;
 
 enum ESystemPriority {
     Input = 0,
+    System = 10,
     Logic = 500,
     Physics = 700,
     Render = 1000

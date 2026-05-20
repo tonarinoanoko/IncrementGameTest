@@ -1,0 +1,14 @@
+﻿#pragma once
+#include "ECS/Entity.h"
+#include "ECS/World.h"
+#include "ECS/SystemManager.h"
+
+
+namespace MyGame {
+class BP_MainResource
+{
+public:
+    static MyECS::Entity Create(MyECS::World& world, MyECS::SystemManager& systems);
+};
+}
+
