@@ -5,7 +5,7 @@
 #include "DxLib.h"
 
 namespace MyGame {
-void Sys_TitleLogic::update(MyECS::World& world, float deltaTime)
+void Sys_TitleLogic::update(MyECS::World& world)
 {
     auto input = ServiceLocator::get<InputManager>();
     auto sceneReq = ServiceLocator::get<SceneRequestManager>();

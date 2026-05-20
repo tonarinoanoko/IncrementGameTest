@@ -19,7 +19,7 @@ public:
         _needs_sort = true;
     }
 
-    void updateAll(World& world, float delta_time);
+    void updateAll(World& world);
 
 private:
     std::vector<std::shared_ptr<ISystem>> _systems;

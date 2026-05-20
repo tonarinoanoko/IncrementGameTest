@@ -27,18 +27,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     MyECS::World world;
 
     MyGame::SceneManager scene_manager;
-    scene_manager.changeScene(MyGame::SceneType::Title, world);
+    scene_manager.changeScene(MyGame::SceneType::Start, world);
 
     // --- メインループ ---
     while(ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
         ClearDrawScreen();
 
-        // デルタタイム（とりあえず固定値か、実測値を入れる）
-        float delta_time = 1.0f / 60.0f;
-
         MyGame::ServiceLocator::updateAll();
 
-        scene_manager.update(world, delta_time);
+        scene_manager.update(world);
 
         ScreenFlip();
     }

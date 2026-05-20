@@ -15,7 +15,7 @@ struct RenderOrder {
     const Co_Sprite* sprite;
 };
 
-void Sys_Render::update(MyECS::World& world, float deltaTime)
+void Sys_Render::update(MyECS::World& world)
 {
     // 1. Transform と Sprite を持つ Entity を抽出
     auto view = world.view<Co_Transform, Co_Sprite>();

@@ -4,6 +4,6 @@
 namespace MyGame {
 class Sys_MainLogic : public MyECS::ISystem {
 public:
-    void update(MyECS::World& world, float deltaTime) override;
+    void update(MyECS::World& world) override;
 };
 }

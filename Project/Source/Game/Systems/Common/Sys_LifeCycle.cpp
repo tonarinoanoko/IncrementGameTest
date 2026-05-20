@@ -4,7 +4,7 @@
 #include <vector>
 
 namespace MyGame {
-void Sys_LifeCycle::update(MyECS::World& world, float deltaTime)
+void Sys_LifeCycle::update(MyECS::World& world)
 {
     // Co_Health を持っているEntityだけを即座に取得
     auto entities = world.query<Co_Health>();

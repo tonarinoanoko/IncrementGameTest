@@ -8,10 +8,10 @@ namespace MyGame {
 class SceneManager {
 public:
     SceneManager();
-    void changeScene(SceneType nextScene, MyECS::World& world);
+    void changeScene(SceneType next, MyECS::World& world);
 
     // メインループから呼ぶ
-    void update(MyECS::World& world, float deltaTime);
+    void update(MyECS::World& world);
 
 private:
     SceneType _current_type;

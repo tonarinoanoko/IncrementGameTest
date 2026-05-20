@@ -19,14 +19,14 @@ void SystemManager::sortSystems()
     _needs_sort = false;
 }
 
-void SystemManager::updateAll(World& world, float deltaTime)
+void SystemManager::updateAll(World& world)
 {
     // 更新前に必要があればソート
     sortSystems();
 
     // 全システムの更新実行
     for(auto& system : _systems) {
-        system->update(world, deltaTime);
+        system->update(world);
     }
 }
 }

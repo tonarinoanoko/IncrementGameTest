@@ -4,9 +4,9 @@
 #include "Game/Global/ServiceLocator.h"
 
 // 各シーンの実装をインクルード
+#include "Instances/Scene_Start.h"
 #include "Instances/Scene_Title.h"
 #include "Instances/Scene_Main.h"
-#include "Instances/Scene_Battle.h"
 
 namespace MyGame {
 
@@ -15,7 +15,7 @@ SceneManager::SceneManager()
 {
 }
 
-void SceneManager::changeScene(SceneType nextType, MyECS::World& world)
+void SceneManager::changeScene(SceneType next, MyECS::World& world)
 {
     // --- 1. 既存シーンの終了処理 ---
     if(_current_scene_obj) {
@@ -30,16 +30,16 @@ void SceneManager::changeScene(SceneType nextType, MyECS::World& world)
     _current_systems = std::make_unique<MyECS::SystemManager>();
 
     // --- 3. 次のシーンオブジェクトの生成 ---
-    _current_type = nextType;
-    switch(nextType) {
+    _current_type = next;
+    switch(next) {
+    case SceneType::Start:
+        _current_scene_obj = std::make_unique<Scene_Start>();
+        break;
     case SceneType::Title:
         _current_scene_obj = std::make_unique<Scene_Title>();
         break;
     case SceneType::Main:
         _current_scene_obj = std::make_unique<Scene_Main>();
-        break;
-    case SceneType::Battle:
-        _current_scene_obj = std::make_unique<Scene_Battle>();
         break;
     }
 
@@ -50,10 +50,10 @@ void SceneManager::changeScene(SceneType nextType, MyECS::World& world)
     }
 }
 
-void SceneManager::update(MyECS::World& world, float deltaTime)
+void SceneManager::update(MyECS::World& world)
 {
     if(_current_systems) {
-        _current_systems->updateAll(world, deltaTime);
+        _current_systems->updateAll(world);
     }
 
     auto sceneReq = ServiceLocator::get<SceneRequestManager>();
