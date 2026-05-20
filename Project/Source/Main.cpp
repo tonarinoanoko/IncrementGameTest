@@ -1,11 +1,7 @@
 ﻿#include "DxLib.h"
 #include "ECS/World.h"
-#include "Game/Time/TimeManager.h"
 #include "Game/Scene/SceneManager.h"
 #include "Game/Global/ServiceLocator.h"
-#include "Game/Input/InputManager.h"
-#include "Game/Scene/SceneRequestManager.h"
-#include "Game/MasterData/MasterDataManager.h"
 
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)

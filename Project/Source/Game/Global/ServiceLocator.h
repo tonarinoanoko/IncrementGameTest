@@ -4,6 +4,8 @@
 #include <vector>
 #include <typeindex>
 #include "IGlobalService.h"
+#include "Services.h"
+
 
 namespace MyGame {
 class ServiceLocator {

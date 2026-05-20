@@ -151,8 +151,10 @@
     <ClInclude Include="Source\Game\Component\Common\Co_Text.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Transform.h" />
     <ClInclude Include="Source\Game\Component\Components.h" />
+    <ClInclude Include="Source\Game\Component\Timer\Co_Timer.h" />
     <ClInclude Include="Source\Game\Global\IGlobalService.h" />
     <ClInclude Include="Source\Game\Global\ServiceLocator.h" />
+    <ClInclude Include="Source\Game\Global\Services.h" />
     <ClInclude Include="Source\Game\Input\InputAction.h" />
     <ClInclude Include="Source\Game\Input\InputManager.h" />
     <ClInclude Include="Source\Game\MasterData\Datas\Enums\EBuilding.h" />
@@ -175,6 +177,7 @@
     <ClInclude Include="Source\Game\Systems\Scene_Start\Sys_StartLogic.h" />
     <ClInclude Include="Source\Game\Systems\Scene_Title\Sys_TitleLogic.h" />
     <ClInclude Include="Source\Game\Time\TimeManager.h" />
+    <ClInclude Include="Source\Game\Systems\Common\Timer\Sys_Timer.h" />
     <ClInclude Include="ThirdParty\DxLib\DxCompileConfig.h" />
     <ClInclude Include="ThirdParty\DxLib\DxDataType.h" />
     <ClInclude Include="ThirdParty\DxLib\DxDataTypeWin.h" />
@@ -202,6 +205,7 @@
     <ClCompile Include="Source\Game\Systems\Scene_Title\Sys_TitleLogic.cpp" />
     <ClCompile Include="Source\Game\Time\TimeManager.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Game\Systems\Common\Timer\Sys_Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
