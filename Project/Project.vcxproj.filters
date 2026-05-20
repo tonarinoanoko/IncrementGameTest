@@ -156,7 +156,7 @@
     <ClInclude Include="Source\Game\Systems\Common\Timer\Sys_Timer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Component\Timer\Co_Timer.h">
+    <ClInclude Include="Source\Game\Component\Common\Timer\Co_Timer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Global\Services.h">

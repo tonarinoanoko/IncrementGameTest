@@ -151,7 +151,7 @@
     <ClInclude Include="Source\Game\Component\Common\Co_Text.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Transform.h" />
     <ClInclude Include="Source\Game\Component\Components.h" />
-    <ClInclude Include="Source\Game\Component\Timer\Co_Timer.h" />
+    <ClInclude Include="Source\Game\Component\Common\Timer\Co_Timer.h" />
     <ClInclude Include="Source\Game\Global\IGlobalService.h" />
     <ClInclude Include="Source\Game\Global\ServiceLocator.h" />
     <ClInclude Include="Source\Game\Global\Services.h" />
