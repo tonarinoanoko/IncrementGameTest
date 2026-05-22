@@ -10,8 +10,6 @@ void Sys_MainLogic::update(MyECS::World& world)
     auto input = ServiceLocator::get<InputManager>();
     auto sceneReq = ServiceLocator::get<SceneRequestManager>();
 
-    DrawString(100, 100, "Main SCENE: PRESS SPACE TO START", GetColor(255, 255, 255));
-
     if(input && input->isTriggered(InputAction::Decision)) {
         // 次のシーンをリクエストするだけ
         sceneReq->request(SceneType::Title);

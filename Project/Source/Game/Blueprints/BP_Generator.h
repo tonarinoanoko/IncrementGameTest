@@ -8,7 +8,7 @@ namespace MyGame {
 class BP_Generator
 {
 public:
-    static MyECS::Entity Create(MyECS::World& world, MyECS::SystemManager& systems);
+    static MyECS::Entity Create(MyECS::World& world, MyECS::SystemManager& systems, int index);
 };
 }
 

@@ -4,6 +4,7 @@
 #include "Game/Component/Common/Timer/Co_Timer.h"
 #include "Game/Component/Resource/Co_MainResource.h"
 #include "Game/Component/Generator/Co_Generator.h"
+#include "Game/Component/Common/Render/Co_Render2D.h"
 
 namespace MyGame {
 
@@ -27,7 +28,8 @@ void Sys_Production::update(MyECS::World& world)
             timer.is_ready = false;
         }
 
-        DrawFormatString(10,10, GetColor(255, 255, 255), "resource %.0f", resource.current_amount);
+        auto& render = world.getComponent<Co_Render2D>(entity);
+        render.elements[resource.amout_text_index].setTextValue(resource.current_amount, 0);
     }
 }
 

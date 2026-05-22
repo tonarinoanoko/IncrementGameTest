@@ -36,6 +36,7 @@ void Scene_Main::onEnter(MyECS::World& world, MyECS::SystemManager& systems)
 
     // BP呼び出し
     BP_MainResource::Create(world, systems);
-    BP_Generator::Create(world, systems);
+    BP_Generator::Create(world, systems, 0);
+    BP_Generator::Create(world, systems, 1);
 }
 }
