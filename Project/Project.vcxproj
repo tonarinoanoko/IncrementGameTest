@@ -145,6 +145,7 @@
     <ClInclude Include="Source\ECS\SystemManager.h" />
     <ClInclude Include="Source\ECS\World.h" />
     <ClInclude Include="Source\Game\Blueprints\BP_Card.h" />
+    <ClInclude Include="Source\Game\Component\Common\Co_Color.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Health.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Name.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Order.h" />
@@ -152,9 +153,12 @@
     <ClInclude Include="Source\Game\Component\Common\Co_Sprite.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Text.h" />
     <ClInclude Include="Source\Game\Component\Common\Co_Transform.h" />
+    <ClInclude Include="Source\Game\Component\Common\Co_Vector2.h" />
+    <ClInclude Include="Source\Game\Component\Common\Render\Co_Render2D.h" />
     <ClInclude Include="Source\Game\Component\Components.h" />
     <ClInclude Include="Source\Game\Component\Common\Timer\Co_Timer.h" />
     <ClInclude Include="Source\Game\Component\Generator\Co_Generator.h" />
+    <ClInclude Include="Source\Game\Component\Resource\Co_MainResource.h" />
     <ClInclude Include="Source\Game\Global\IGlobalService.h" />
     <ClInclude Include="Source\Game\Global\ServiceLocator.h" />
     <ClInclude Include="Source\Game\Global\Services.h" />
